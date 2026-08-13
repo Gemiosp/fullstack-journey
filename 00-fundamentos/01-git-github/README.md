@@ -97,9 +97,11 @@ git config --list
 ssh-keygen -t ed25519 -C "gabrielbarrosdasilva9@gmail.com"
 
 # Iniciar o agente SSH
+# NOTA: O comando abaixo ('eval') funciona no Git Bash ou Linux/Mac.
+# No PowerShell do Windows, ele dará erro. Se der erro, pule para o próximo passo.
 eval "$(ssh-agent -s)"
 
-# Adicionar a chave
+# Adicionar a chave (no Windows, às vezes não é necessário iniciar o agente manualmente)
 ssh-add ~/.ssh/id_ed25519
 
 # Copiar a chave pública (adicionar no GitHub → Settings → SSH Keys)
