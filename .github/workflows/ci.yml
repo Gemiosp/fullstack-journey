@@ -1,0 +1,42 @@
+name: Welcome CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  welcome:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 🎉 Mensagem de boas-vindas
+        run: |
+          echo "========================================="
+          echo "🚀 Full Stack Journey — CI Pipeline"
+          echo "========================================="
+          echo ""
+          echo "📅 Data: $(date)"
+          echo "👤 Autor: ${{ github.actor }}"
+          echo "📝 Commit: ${{ github.sha }}"
+          echo ""
+
+      - name: 📁 Estrutura do projeto
+        run: |
+          echo "📂 Estrutura de pastas:"
+          find . -type d -not -path './.git/*' | sort | head -40
+          echo ""
+          echo "📄 Total de arquivos:"
+          find . -type f -not -path './.git/*' | wc -l
+
+      - name: ✅ Verificações
+        run: |
+          echo "Verificando arquivos essenciais..."
+          test -f README.md && echo "✅ README.md encontrado" || echo "❌ README.md ausente"
+          test -f .gitignore && echo "✅ .gitignore encontrado" || echo "❌ .gitignore ausente"
+          test -f .editorconfig && echo "✅ .editorconfig encontrado" || echo "❌ .editorconfig ausente"
+          test -f CHANGELOG.md && echo "✅ CHANGELOG.md encontrado" || echo "❌ CHANGELOG.md ausente"
+          echo ""
+          echo "🎉 Pipeline concluído com sucesso!"
