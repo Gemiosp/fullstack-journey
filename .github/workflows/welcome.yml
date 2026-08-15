@@ -1,0 +1,17 @@
+name: Welcome CI
+
+on:
+    push:
+        branches: [main]
+
+jobs:
+    welcome:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - name: Mostrar estrutura do projeto
+              run: |
+                echo "🚀 Build iniciado!"
+                echo "📁 Estrutura do projeto:"
+                find . -not -path './.git/*' | head -30
+                echo "✅ Tudo certo!"
