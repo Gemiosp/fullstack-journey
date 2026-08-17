@@ -1,0 +1,58 @@
+<!--
+    Todas as correções aplicadas:
+    1. Todos os divs que hoje têm classes, devem se tornar tags semânticas (ex: o div com a classe .logo vira tag <header>).
+    2. Adicione um meta charset e meta description no <head>.
+    3. O botão que tem o texto "Clique aqui" deve ter um aria-label que descreva a ação (ex: "Clique aqui para ler o post").
+    4. Mude o "div" do botão de enviar para tag <button>.
+    5. Adicione um link "Pular para o conteúdo principal" no início do arquivo.
+    6. Use a tag <a> em vez de onclick para navegação.
+-->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Site de exemplo com conteúdo legal">
+    <title>Site</title>
+</head>
+<header class="header">
+    <a class="logo" href="/">
+        <img src="logo.png" alt="Logo MeuSite">
+    </a>
+    <nav class="nav">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/sobre">Sobre</a></li>
+            <li><a href="/contato">Contato</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="main">
+    <h1 class="title">Bem-vindo ao Meu Site</h1>
+    <img src="hero.jpg">
+    <p class="text">Este é um site incrível com muito conteúdo legal.</p>
+
+    <article class="card">
+        <img src="post1.jpg">
+        <h2 class="card-title">Post Importante</h2>
+        <time datetime="2026-08-17">Publicado em 17/08/2026</time>
+        <button type="button" class="btn" onclick="alert('ler')"
+            aria-label="Clique aqui para ler o post importante">Clique aqui</button>
+    </article>
+
+    <form class="form">
+        <label for="name">Seu nome</label>
+        <input id="name" placeholder="Seu nome">
+        <label for="email">Email</label>
+        <input id="email" placeholder="email@email.com">
+        <button type="submit" class="btn" onclick="submit()">Enviar</button>
+    </form>
+</main>
+
+<footer class="footer">
+    <small>© 2026</small>
+</footer>
+
+</html>
